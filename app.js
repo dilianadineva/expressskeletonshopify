@@ -26,14 +26,20 @@ let options = {
 //   headers: { 'Content-type': 'application/json' },
 };
 
-app.get('/data', (req, resp) => {
-  request(options, (err, res) => {
-    if (err) {
-      console.log(err);
-    }
-    // resp.send("aaa");
-    console.log(res.body);
-    resp.send(res.body)
+// app.get('/data', (req, resp) => {
+//   request(options, (err, res) => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     // resp.send("aaa");
+//     console.log(res.body);
+//     resp.send(res.body)
+//   });
+// });
+app.get('/', (req, res) => {
+  return res.status(200).json({
+    title: "Express Testing",
+    message: "The app is working properly!",
   });
 });
 const port = process.env.PORT || 9001;
